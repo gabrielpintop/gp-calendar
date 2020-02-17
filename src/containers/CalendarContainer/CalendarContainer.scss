@@ -119,11 +119,16 @@
     border-radius: 100%;
     border: 1px solid transparent;
     text-align: center;
+    cursor: pointer;
 }
 
 .calendar-day-content {
     height: calc((70vh - 80px)/5);
     overflow: hidden;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     .reminder {
         margin-top: 0.1rem;
@@ -171,6 +176,7 @@
     padding: 0.1rem;
     list-style: none;
     height: 82%;
+    max-height: 400px;
     overflow-y: auto;
     margin-bottom: 1rem;
 }
@@ -225,6 +231,7 @@ button {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     transition: background-color 0.15s ease-in-out;
     font-family: 'Lato', sans-serif;
+    font-size: 15px;
 }
 
 .button-delete {
@@ -252,5 +259,5 @@ button {
 }
 
 .selected-day {
-    border: 1px solid #4A8179;
+    border: 1.4px solid #4A8179;
 }

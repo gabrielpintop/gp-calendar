@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const SelectMonth = (props) => {
 
-    const [{ day, month, year, setMonth, setYear, setDay }, setCurrentProps] = useState(props);
+    const [{ day, month, year, changeDate }, setCurrentProps] = useState(props);
 
     useEffect(() => {
         setCurrentProps(props);
@@ -17,21 +17,15 @@ const SelectMonth = (props) => {
     const changeMonth = (forward) => {
         if (forward) {
             if (month + 1 > 11) {
-                setYear(year + 1);
-                setDay(1);
-                setMonth(0);
+                changeDate(year + 1, 0, 1);
             } else {
-                setDay(1);
-                setMonth(month + 1);
+                changeDate(year, month + 1, 1);
             }
         } else {
             if (month - 1 < 0) {
-                setYear(year - 1);
-                setDay(1);
-                setMonth(12);
+                changeDate(year - 1, 11, 1);
             } else {
-                setMonth(month - 1);
-                setDay(1);
+                changeDate(year, month - 1, 1);
             }
         }
     };

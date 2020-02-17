@@ -1,0 +1,21 @@
+.label {
+    font-weight: bold;
+}
+
+.form-control {
+    display: block;
+    background-color: transparent;
+    border: 1px solid #4D4352;
+    border-radius: 0.25rem;
+    font-size: 16px;
+    padding: 5px 5px;
+    outline: none !important;
+    width: 270px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+#closeHeader {
+    text-align: right;
+    cursor: pointer;
+}

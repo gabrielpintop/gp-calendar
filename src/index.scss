@@ -10,6 +10,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+input {
+  font-family: 'Lato', sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -33,4 +37,16 @@ h6 {
   user-select: none;
   /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
+}
+
+.margin-top-2 {
+  margin-top: 2rem;
+}
+
+.margin-top-1 {
+  margin-top: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
