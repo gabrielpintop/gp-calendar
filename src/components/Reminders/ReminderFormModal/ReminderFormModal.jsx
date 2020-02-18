@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './ReminderFormModal.scss';
 import { addReminder, updateReminder, deleteReminder } from '../../../services/reminders';
+import { getWeatherBasedOnCity } from '../../../services/weather';
 
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,0.5)';
 Modal.setAppElement('#root');
 
 const ReminderForm = ({ showModal, handleShowModal, reminder }) => {
+
+    const [loading, setLoading] = useState(false);
+
+    const [weatherData, setWeatherData] = useState(null);
 
     const customStyles = {
         content: {
@@ -34,6 +39,22 @@ const ReminderForm = ({ showModal, handleShowModal, reminder }) => {
             [event.target.name]: event.target.value
         });
     };
+
+    const getCityWeather = () => {
+        setLoading(true);
+        getWeatherBasedOnCity(reminder.city).then(data => {
+            setWeatherData(data);
+            setLoading(false);
+        }).catch(err => {
+            setLoading(false);
+        });
+    };
+
+    useEffect(() => {
+        if (reminder.id && reminder.city) {
+            getCityWeather();
+        }
+    }, []);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -75,6 +96,7 @@ const ReminderForm = ({ showModal, handleShowModal, reminder }) => {
     return (
         <Modal isOpen={showModal} style={customStyles}>
             <div id="closeHeader"><i className="fas fa-times" onClick={() => handleShowModal(false, {})}></i></div>
+            {reminder.id && <div className="weather-information">{loading ? <span className="loading-weather">Loading {reminder.city} weather...</span> : weatherData && <><img src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}></img><span>{weatherData.main} in {reminder.city}</span></>}</div>}
             <form onSubmit={handleSubmit}>
                 <label className="label" htmlFor="text">Text</label>
                 <input
