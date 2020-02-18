@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './ReminderFormModal.scss';
-import { addReminder, updateReminder, deleteReminder } from '../../../services/reminders';
 import { getWeatherBasedOnCity } from '../../../services/weather';
 import { connect } from 'react-redux';
 import { toggleModal, setRemindersAndDate } from '../../../actions';
+
+const { addReminder, updateReminder, deleteReminder } = require('../../../services/reminders');
+
 
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,0.5)';
 Modal.setAppElement('#root');

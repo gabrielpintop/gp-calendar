@@ -1,7 +1,8 @@
 import React from 'react';
-import { deleteReminders } from '../../../services/reminders';
 import { connect } from 'react-redux';
 import { setRemindersAndDate } from '../../../actions';
+const { deleteReminders } = require('../../../services/reminders');
+
 
 const ReminderDeleteAll = (props) => {
 

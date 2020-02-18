@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CalendarDay from './CalendarDay/CalendarDay';
-import { getRemindersByYearAndMonth } from '../../services/reminders';
 import { connect } from 'react-redux';
+const { getRemindersByYearAndMonth } = require('../../services/reminders');
 
 const Calendar = (props) => {
 
