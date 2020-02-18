@@ -2,21 +2,28 @@ import React from 'react';
 import SelectMonth from './SelectMonth/SelectMonth';
 import Reminders from '../Reminders/Reminders';
 import ReminderDeleteAll from '../Reminders/ReminderDeleteAll/ReminderDeleteAll';
+import { connect } from 'react-redux';
 
-const CalendarOptions = ({ month, year, day, reminders, handleShowModal, changeDate, updateReminders }) => {
+const CalendarOptions = ({ reminders }) => {
     return (
         <section id="calendarOptions">
-            <SelectMonth year={year} month={month} day={day} changeDate={changeDate} />
+            <SelectMonth />
             <hr />
-            <Reminders year={year} month={month} day={day} reminders={reminders} handleShowModal={handleShowModal} />
+            <Reminders />
             {reminders && reminders.length > 0 &&
                 <>
                     <hr />
-                    <ReminderDeleteAll year={year} month={month} day={day} updateReminders={updateReminders} />
+                    <ReminderDeleteAll />
                 </>
             }
         </section>
     );
 };
 
-export default CalendarOptions;
+const mapStateToProps = ({ reminders }) => {
+    return {
+        reminders,
+    };
+};
+
+export default connect(mapStateToProps, null)(CalendarOptions);

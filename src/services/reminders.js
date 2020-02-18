@@ -1,4 +1,17 @@
 const addReminder = (year, month, day, { id, text, time, city, color }) => {
+
+    if (year === undefined || month === undefined || day === undefined) {
+        return 'The dates of the reminder are not valid';
+    } else if (!text) {
+        return 'The text of the reminder is required';
+    } else if (!time) {
+        return 'The time of the reminder is required';
+    } else if (!city) {
+        return 'The city of the reminder is required';
+    } else if (!color) {
+        return 'The color of the reminder is required';
+    }
+
     let reminders = {};
     try {
         const parsedReminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));

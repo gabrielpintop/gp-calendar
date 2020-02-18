@@ -1,7 +1,11 @@
 import React from 'react';
 import ReminderDetails from './ReminderDetails/ReminderDetails';
+import { connect } from 'react-redux';
+import { toggleModal } from '../../actions';
 
-const Reminders = ({ year, month, day, reminders, handleShowModal }) => {
+const Reminders = (props) => {
+
+    const { year, month, day, reminders, toggleModal } = props;
 
     const formatter = new Intl.DateTimeFormat('en', { weekday: 'long' });
 
@@ -13,17 +17,30 @@ const Reminders = ({ year, month, day, reminders, handleShowModal }) => {
         <div id="reminder">
             <h4>{calculatWeekDay()} {day}</h4>
             {reminders && reminders.length > 0 &&
-                <ul class="reminder-list">
-                    {reminders.map(reminder =>
-                        <ReminderDetails reminder={reminder} handleShowModal={handleShowModal} year={year} month={month} day={day}></ReminderDetails>
+                <ul className="reminder-list">
+                    {reminders.map((reminder, index) =>
+                        <ReminderDetails reminder={reminder} key={'R' + index}></ReminderDetails>
                     )}
                 </ul>
             }
             <div id="reminderAdd" className={reminders.length === 0 ? 'margin-top-2' : ''}>
-                <button className="button-add" onClick={() => handleShowModal(true, { year, month, day })}><i className="fas fa-plus"></i>&nbsp;Add reminder</button>
+                <button className="button-add" onClick={() => toggleModal({ showModal: true, reminder: {} })}><i className="fas fa-plus"></i>&nbsp;Add reminder</button>
             </div>
         </div>
     );
 }
 
-export default Reminders;
+const mapStateToProps = ({ reminders, year, month, day }) => {
+    return {
+        reminders,
+        year,
+        month,
+        day
+    };
+};
+
+const mapDispatchToProps = {
+    toggleModal
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reminders);
