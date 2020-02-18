@@ -8,7 +8,7 @@ const CalendarDay = ({ day, month, year, currentMonth, reminders, currentDay, se
             <div className="calendar-day-content">
                 <h5 onClick={() => changeDate(year, month, day)} className={`no-select calendar-day-title${currentDay ? ' current-day' : ''}${selectedDay ? ' selected-day' : ''}`}>{day}</h5>
                 {reminders && reminders.length > 0 ?
-                    <div className="reminder" onClick={() => handleShowModal(true, { ...reminders[0], year, month, day })}>
+                    <div style={{ backgroundColor: reminders[0].color }} className="reminder" onClick={() => handleShowModal(true, { ...reminders[0], year, month, day })}>
                         {reminders[0].text}
                     </div>
                     :

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './ReminderFormModal.scss';
-import { addReminder, updateReminder } from '../../../services/reminders';
+import { addReminder, updateReminder, deleteReminder } from '../../../services/reminders';
 
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,0.5)';
 Modal.setAppElement('#root');
@@ -38,11 +38,37 @@ const ReminderForm = ({ showModal, handleShowModal, reminder }) => {
     const handleSubmit = event => {
         event.preventDefault();
         const dateElements = form.date.split('-');
+        if (reminder.id) {
+            updateExistingReminder(dateElements);
+        } else {
+            addNewReminder(dateElements);
+        }
+    };
+
+    const addNewReminder = (dateElements) => {
         const result = addReminder(Number(dateElements[0]), Number(dateElements[1]) - 1, Number(dateElements[2]), form);
         if (result) {
             handleShowModal(false, {}, { newYear: Number(dateElements[0]), newMonth: Number(dateElements[1]) - 1, newDay: Number(dateElements[2]) })
         } else {
             window.alert('There was an error while adding the reminder');
+        }
+    };
+
+    const updateExistingReminder = (dateElements) => {
+
+        const result = updateReminder(reminder.year, reminder.month, reminder.day, { ...form, id: reminder.id, year: Number(dateElements[0]), month: Number(dateElements[1]) - 1, day: Number(dateElements[2]) });
+        if (result) {
+            handleShowModal(false, {}, { newYear: Number(dateElements[0]), newMonth: Number(dateElements[1]) - 1, newDay: Number(dateElements[2]) })
+        } else {
+            window.alert('There was an error while updating the reminder');
+        }
+    };
+
+    const handleDeleteReminder = () => {
+        if (deleteReminder(reminder.year, reminder.month, reminder.day, reminder.id)) {
+            handleShowModal(false, {});
+        } else {
+            window.alert('There was an error while deleting the reminder')
         }
     };
 
@@ -104,7 +130,10 @@ const ReminderForm = ({ showModal, handleShowModal, reminder }) => {
                     onChange={handleInput}
                     required
                 />
+                <small>*Do not choose light colors for better usability</small>
+                <br />
                 <button className="button-add margin-top-1 "><i className={`fas ${reminder.id ? 'fa-save' : 'fa-plus'}`} ></i>&nbsp;{reminder.id ? 'Save' : 'Create'}&nbsp;</button>
+                {reminder.id && <button className="button-delete margin-top-1 float-right" type="button" onClick={handleDeleteReminder}><i className="fas fa-trash" ></i>&nbsp;Delete&nbsp;</button>}
             </form>
         </Modal>
     );

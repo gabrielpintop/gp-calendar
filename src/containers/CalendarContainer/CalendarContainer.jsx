@@ -3,7 +3,7 @@ import './CalendarContainer.scss';
 import Calendar from '../../components/Calendar/Calendar';
 import CalendarOptions from '../../components/CalendarOptions/CalendarOptions';
 import DevelopedBy from '../../components/DevelopedBy/DevelopedBy';
-import { getRemindersByYearMonthAndDay, addReminder } from '../../services/reminders';
+import { getRemindersByYearMonthAndDay, addReminder, deleteReminder } from '../../services/reminders';
 import ReminderForm from '../../components/Reminders/ReminderFormModal/ReminderFormModal';
 
 const CalendarContainer = (props) => {
@@ -21,11 +21,6 @@ const CalendarContainer = (props) => {
     const [day, setDay] = useState(currentDate.getDate());
 
     const [reminders, setReminders] = useState(getRemindersByYearMonthAndDay(year, month, day));
-
-    const addNewReminder = (reminderYear, reminderMonth, reminderDay, reminder) => {
-        addReminder(reminderYear, reminderMonth, reminderDay, reminder);
-        handleDateChange(reminderYear, reminderMonth, reminderDay);
-    };
 
     const handleDateChange = (year, month, day) => {
         setDay(day);
@@ -49,7 +44,7 @@ const CalendarContainer = (props) => {
                 <CalendarOptions year={year} month={month} day={day} setMonth={setMonth} setYear={setYear} setDay={setDay} reminders={reminders} handleShowModal={handleShowModal} changeDate={handleDateChange} />
             </div>
             <DevelopedBy />
-            {showModal && <ReminderForm showModal={showModal} handleShowModal={handleShowModal} addNewReminder={addNewReminder} reminder={reminder} />}
+            {showModal && <ReminderForm showModal={showModal} handleShowModal={handleShowModal} reminder={reminder} />}
         </main>
     );
 }

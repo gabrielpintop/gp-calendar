@@ -1,4 +1,4 @@
-const addReminder = (year, month, day, { text, time, city, color }) => {
+const addReminder = (year, month, day, { id, text, time, city, color }) => {
     let reminders = {};
     try {
         const parsedReminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));
@@ -10,7 +10,7 @@ const addReminder = (year, month, day, { text, time, city, color }) => {
     }
 
     const reminder = {
-        id: `${year}-${month - 1}-${day}-${new Date().getTime()}`,
+        id: id || new Date().getTime(),
         text,
         time,
         city,
@@ -47,6 +47,38 @@ const getRemindersByYearAndMonth = (year, month) => {
     }
 };
 
+const updateReminder = (year, month, day, reminder) => {
+    if (deleteReminder(year, month, day, reminder.id)) {
+        return addReminder(reminder.year, reminder.month, reminder.day, reminder);
+    } else {
+        return false;
+    }
+};
+
+const deleteReminder = (year, month, day, id) => {
+    try {
+        const parsedReminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));
+        if (parsedReminders) {
+            const reminders = parsedReminders[year][month][day];
+            const index = reminders.findIndex(reminder => reminder.id === id);
+            if (index === -1) {
+                return false;
+            } else {
+
+                reminders.splice(index, 1);
+                parsedReminders[year][month][day] = reminders;
+                localStorage.setItem('GP_CALENDAR_STUFF', JSON.stringify(parsedReminders));
+                return true;
+            }
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+};
+
 const getRemindersByYearMonthAndDay = (year, month, day) => {
     const reminders = getRemindersByYearAndMonth(year, month);
 
@@ -58,5 +90,7 @@ const getRemindersByYearMonthAndDay = (year, month, day) => {
 module.exports = {
     getRemindersByYearAndMonth,
     getRemindersByYearMonthAndDay,
-    addReminder
+    addReminder,
+    updateReminder,
+    deleteReminder
 }
