@@ -234,6 +234,10 @@ button {
     font-size: 15px;
 }
 
+button:focus {
+    outline: 0;
+}
+
 .button-delete {
     background-color: #E60000;
     color: white;

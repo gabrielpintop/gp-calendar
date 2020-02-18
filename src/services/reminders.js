@@ -79,6 +79,22 @@ const deleteReminder = (year, month, day, id) => {
     }
 };
 
+const deleteReminders = (year, month, day) => {
+    try {
+        const parsedReminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));
+        if (parsedReminders) {
+            parsedReminders[year][month][day] = [];
+            localStorage.setItem('GP_CALENDAR_STUFF', JSON.stringify(parsedReminders));
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+};
+
 const getRemindersByYearMonthAndDay = (year, month, day) => {
     const reminders = getRemindersByYearAndMonth(year, month);
 
@@ -92,5 +108,6 @@ module.exports = {
     getRemindersByYearMonthAndDay,
     addReminder,
     updateReminder,
-    deleteReminder
+    deleteReminder,
+    deleteReminders
 }

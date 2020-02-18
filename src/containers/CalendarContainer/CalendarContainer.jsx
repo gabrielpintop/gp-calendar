@@ -26,6 +26,10 @@ const CalendarContainer = (props) => {
         setDay(day);
         setMonth(month);
         setYear(year);
+        updateReminders(year, month, day);
+    };
+
+    const updateReminders = (year, month, day) => {
         setReminders(getRemindersByYearMonthAndDay(year, month, day));
     };
 
@@ -41,7 +45,7 @@ const CalendarContainer = (props) => {
         <main id="calendarContainer">
             <div id="calendarView">
                 <Calendar year={year} month={month} day={day} currentDate={currentDate} setDay={setDay} handleShowModal={handleShowModal} changeDate={handleDateChange} />
-                <CalendarOptions year={year} month={month} day={day} setMonth={setMonth} setYear={setYear} setDay={setDay} reminders={reminders} handleShowModal={handleShowModal} changeDate={handleDateChange} />
+                <CalendarOptions year={year} month={month} day={day} setMonth={setMonth} setYear={setYear} setDay={setDay} reminders={reminders} handleShowModal={handleShowModal} changeDate={handleDateChange} updateReminders={updateReminders} />
             </div>
             <DevelopedBy />
             {showModal && <ReminderForm showModal={showModal} handleShowModal={handleShowModal} reminder={reminder} />}

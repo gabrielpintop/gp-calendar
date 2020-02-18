@@ -1,19 +1,18 @@
 import React from 'react';
 import SelectMonth from './SelectMonth/SelectMonth';
 import Reminders from '../Reminders/Reminders';
+import ReminderDeleteAll from '../Reminders/ReminderDeleteAll/ReminderDeleteAll';
 
-const CalendarOptions = ({ month, year, day, reminders, setMonth, setYear, setDay, handleShowModal, addNewReminder, deleteReminder, deleteAllReminders, changeDate }) => {
+const CalendarOptions = ({ month, year, day, reminders, handleShowModal, changeDate, updateReminders }) => {
     return (
         <section id="calendarOptions">
             <SelectMonth year={year} month={month} day={day} changeDate={changeDate} />
             <hr />
-            <Reminders year={year} month={month} day={day} reminders={reminders} addNewReminder={addNewReminder} handleShowModal={handleShowModal} />
+            <Reminders year={year} month={month} day={day} reminders={reminders} handleShowModal={handleShowModal} />
             {reminders && reminders.length > 0 &&
                 <>
                     <hr />
-                    <div id="reminderDeleteAll">
-                        <button className="button-delete"><i className="fas fa-trash"></i>&nbsp;Delete all</button>
-                    </div>
+                    <ReminderDeleteAll year={year} month={month} day={day} updateReminders={updateReminders} />
                 </>
             }
         </section>
