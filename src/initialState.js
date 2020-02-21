@@ -1,5 +1,5 @@
+import { getRemindersByYearMonthAndDay } from './services/reminders';
 const date = new Date();
-const { getRemindersByYearMonthAndDay } = require('./services/reminders');
 const reminders = getRemindersByYearMonthAndDay(date.getFullYear(), date.getMonth(), date.getDate());
 
 export default {

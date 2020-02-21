@@ -1,0 +1,381 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReminderFormModal component should match the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(ReminderForm)>
+    <ReminderForm
+      day={21}
+      month={1}
+      reminder={
+        Object {
+          "time": "15:00",
+        }
+      }
+      setRemindersAndDate={[Function]}
+      showModal={true}
+      toggleModal={[Function]}
+      year={2020}
+    >
+      <Modal
+        ariaHideApp={true}
+        bodyOpenClassName="ReactModal__Body--open"
+        closeTimeoutMS={0}
+        isOpen={true}
+        parentSelector={[Function]}
+        portalClassName="ReactModalPortal"
+        role="dialog"
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+        shouldFocusAfterRender={true}
+        shouldReturnFocusAfterClose={true}
+        style={
+          Object {
+            "content": Object {
+              "borderColor": "#a42ef3",
+              "bottom": "auto",
+              "left": "50%",
+              "marginRight": "-50%",
+              "right": "auto",
+              "top": "50%",
+              "transform": "translate(-50%, -50%)",
+            },
+          }
+        }
+      >
+        <Portal
+          containerInfo={
+            <div
+              class="ReactModalPortal"
+            >
+              <div
+                class="ReactModal__Overlay ReactModal__Overlay--after-open"
+                style="position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(255, 255, 255, 0.75);"
+              >
+                <div
+                  class="ReactModal__Content ReactModal__Content--after-open"
+                  role="dialog"
+                  style="position: absolute; top: 50%; left: 50%; border: 1px solid #ccc; background: rgb(255, 255, 255); overflow: auto; border-radius: 4px; outline: none; padding: 20px; margin-right: -50%; transform: translate(-50%, -50%); border-color: #a42ef3;"
+                  tabindex="-1"
+                >
+                  <div
+                    id="closeHeader"
+                  >
+                    <i
+                      class="fas fa-times"
+                    />
+                  </div>
+                  <form>
+                    <label
+                      class="label"
+                      for="text"
+                    >
+                      Text
+                    </label>
+                    <input
+                      class="form-control"
+                      id="text"
+                      maxlength="30"
+                      minlength="1"
+                      name="text"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                    <label
+                      class="label"
+                      for="date"
+                    >
+                      Date
+                    </label>
+                    <input
+                      class="form-control"
+                      id="date"
+                      name="date"
+                      required=""
+                      type="date"
+                      value="2020-02-21"
+                    />
+                    <label
+                      class="label"
+                      for="text"
+                    >
+                      Time
+                    </label>
+                    <input
+                      class="form-control"
+                      id="time"
+                      name="time"
+                      required=""
+                      type="time"
+                      value="15:00"
+                    />
+                    <label
+                      class="label"
+                      for="city"
+                    >
+                      City
+                    </label>
+                    <input
+                      class="form-control"
+                      id="city"
+                      maxlength="50"
+                      name="city"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                    <label
+                      class="label"
+                      for="color"
+                    >
+                      Color
+                    </label>
+                    <input
+                      class="form-control"
+                      id="color"
+                      name="color"
+                      required=""
+                      type="color"
+                      value="#009D87"
+                    />
+                    <small>
+                      *Do not choose light colors for better usability
+                    </small>
+                    <br />
+                    <button
+                      class="button-add margin-top-1 "
+                      type="submit"
+                    >
+                      <i
+                        class="fas fa-plus"
+                      />
+                       
+                      Create
+                       
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          }
+        >
+          <ModalPortal
+            ariaHideApp={true}
+            bodyOpenClassName="ReactModal__Body--open"
+            closeTimeoutMS={0}
+            defaultStyles={
+              Object {
+                "content": Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "background": "#fff",
+                  "border": "1px solid #ccc",
+                  "borderRadius": "4px",
+                  "bottom": "40px",
+                  "left": "40px",
+                  "outline": "none",
+                  "overflow": "auto",
+                  "padding": "20px",
+                  "position": "absolute",
+                  "right": "40px",
+                  "top": "40px",
+                },
+                "overlay": Object {
+                  "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "fixed",
+                  "right": 0,
+                  "top": 0,
+                },
+              }
+            }
+            isOpen={true}
+            parentSelector={[Function]}
+            portalClassName="ReactModalPortal"
+            role="dialog"
+            shouldCloseOnEsc={true}
+            shouldCloseOnOverlayClick={true}
+            shouldFocusAfterRender={true}
+            shouldReturnFocusAfterClose={true}
+            style={
+              Object {
+                "content": Object {
+                  "borderColor": "#a42ef3",
+                  "bottom": "auto",
+                  "left": "50%",
+                  "marginRight": "-50%",
+                  "right": "auto",
+                  "top": "50%",
+                  "transform": "translate(-50%, -50%)",
+                },
+              }
+            }
+          >
+            <div
+              className="ReactModal__Overlay ReactModal__Overlay--after-open"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "fixed",
+                  "right": 0,
+                  "top": 0,
+                }
+              }
+            >
+              <div
+                className="ReactModal__Content ReactModal__Content--after-open"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                role="dialog"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "background": "#fff",
+                    "border": "1px solid #ccc",
+                    "borderColor": "#a42ef3",
+                    "borderRadius": "4px",
+                    "bottom": "auto",
+                    "left": "50%",
+                    "marginRight": "-50%",
+                    "outline": "none",
+                    "overflow": "auto",
+                    "padding": "20px",
+                    "position": "absolute",
+                    "right": "auto",
+                    "top": "50%",
+                    "transform": "translate(-50%, -50%)",
+                  }
+                }
+                tabIndex="-1"
+              >
+                <div
+                  id="closeHeader"
+                >
+                  <i
+                    className="fas fa-times"
+                    onClick={[Function]}
+                  />
+                </div>
+                <form
+                  onSubmit={[Function]}
+                >
+                  <label
+                    className="label"
+                    htmlFor="text"
+                  >
+                    Text
+                  </label>
+                  <input
+                    className="form-control"
+                    id="text"
+                    maxLength="30"
+                    minLength="1"
+                    name="text"
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                  <label
+                    className="label"
+                    htmlFor="date"
+                  >
+                    Date
+                  </label>
+                  <input
+                    className="form-control"
+                    id="date"
+                    name="date"
+                    onChange={[Function]}
+                    required={true}
+                    type="date"
+                    value="2020-02-21"
+                  />
+                  <label
+                    className="label"
+                    htmlFor="text"
+                  >
+                    Time
+                  </label>
+                  <input
+                    className="form-control"
+                    id="time"
+                    name="time"
+                    onChange={[Function]}
+                    required={true}
+                    type="time"
+                    value="15:00"
+                  />
+                  <label
+                    className="label"
+                    htmlFor="city"
+                  >
+                    City
+                  </label>
+                  <input
+                    className="form-control"
+                    id="city"
+                    maxLength="50"
+                    name="city"
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                  <label
+                    className="label"
+                    htmlFor="color"
+                  >
+                    Color
+                  </label>
+                  <input
+                    className="form-control"
+                    id="color"
+                    name="color"
+                    onChange={[Function]}
+                    required={true}
+                    type="color"
+                    value="#009D87"
+                  />
+                  <small>
+                    *Do not choose light colors for better usability
+                  </small>
+                  <br />
+                  <button
+                    className="button-add margin-top-1 "
+                    type="submit"
+                  >
+                    <i
+                      className="fas fa-plus"
+                    />
+                     
+                    Create
+                     
+                  </button>
+                </form>
+              </div>
+            </div>
+          </ModalPortal>
+        </Portal>
+      </Modal>
+    </ReminderForm>
+  </Connect(ReminderForm)>
+</Provider>
+`;

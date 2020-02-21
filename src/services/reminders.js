@@ -1,9 +1,10 @@
-const addReminder = (year, month, day, { id, text, time, city, color }) => {
-
-    if (year === undefined || month === undefined || day === undefined) {
+export const addReminder = (year, month, day, { id, text, time, city, color }) => {
+    if (year === null || month === null || day === null) {
         return 'The dates of the reminder are not valid';
     } else if (!text) {
         return 'The text of the reminder is required';
+    } else if (text.length > 30) {
+        return 'Reminder length is not valid';
     } else if (!time) {
         return 'The time of the reminder is required';
     } else if (!city) {
@@ -51,7 +52,7 @@ const addReminder = (year, month, day, { id, text, time, city, color }) => {
     return true;
 };
 
-const getRemindersByYearAndMonth = (year, month) => {
+export const getRemindersByYearAndMonth = (year, month) => {
     const reminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));
     if (reminders && reminders[year] && reminders[year][month]) {
         return reminders[year][month];
@@ -60,7 +61,7 @@ const getRemindersByYearAndMonth = (year, month) => {
     }
 };
 
-const updateReminder = (year, month, day, reminder) => {
+export const updateReminder = (year, month, day, reminder) => {
     if (deleteReminder(year, month, day, reminder.id)) {
         return addReminder(reminder.year, reminder.month, reminder.day, reminder);
     } else {
@@ -68,7 +69,7 @@ const updateReminder = (year, month, day, reminder) => {
     }
 };
 
-const deleteReminder = (year, month, day, id) => {
+export const deleteReminder = (year, month, day, id) => {
     try {
         const parsedReminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));
         if (parsedReminders) {
@@ -92,7 +93,7 @@ const deleteReminder = (year, month, day, id) => {
     }
 };
 
-const deleteReminders = (year, month, day) => {
+export const deleteReminders = (year, month, day) => {
     try {
         const parsedReminders = JSON.parse(localStorage.getItem('GP_CALENDAR_STUFF'));
         if (parsedReminders) {
@@ -108,19 +109,10 @@ const deleteReminders = (year, month, day) => {
     }
 };
 
-const getRemindersByYearMonthAndDay = (year, month, day) => {
+export const getRemindersByYearMonthAndDay = (year, month, day) => {
     const reminders = getRemindersByYearAndMonth(year, month);
 
     if (reminders) {
         return reminders[day] || [];
     }
 };
-
-module.exports = {
-    getRemindersByYearAndMonth,
-    getRemindersByYearMonthAndDay,
-    addReminder,
-    updateReminder,
-    deleteReminder,
-    deleteReminders
-}

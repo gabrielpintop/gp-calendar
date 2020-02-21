@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './ReminderFormModal.scss';
-import { getWeatherBasedOnCity } from '../../../services/weather';
 import { connect } from 'react-redux';
 import { toggleModal, setRemindersAndDate } from '../../../actions';
-
-const { addReminder, updateReminder, deleteReminder } = require('../../../services/reminders');
-
-
-Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,0.5)';
-Modal.setAppElement('#root');
+import { getWeatherBasedOnCity } from '../../../services/weather';
+import { addReminder, updateReminder, deleteReminder } from '../../../services/reminders';
 
 const ReminderForm = (props) => {
 
@@ -55,8 +50,6 @@ const ReminderForm = (props) => {
             setLoading(false);
         });
     };
-
-
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -161,7 +154,7 @@ const ReminderForm = (props) => {
                 />
                 <small>*Do not choose light colors for better usability</small>
                 <br />
-                <button className="button-add margin-top-1 "><i className={`fas ${reminder.id ? 'fa-save' : 'fa-plus'}`} ></i>&nbsp;{reminder.id ? 'Save' : 'Create'}&nbsp;</button>
+                <button type="submit" className="button-add margin-top-1 "><i className={`fas ${reminder.id ? 'fa-save' : 'fa-plus'}`} ></i>&nbsp;{reminder.id ? 'Save' : 'Create'}&nbsp;</button>
                 {reminder.id && <button className="button-delete margin-top-1 float-right" type="button" onClick={handleDeleteReminder}><i className="fas fa-trash" ></i>&nbsp;Delete&nbsp;</button>}
             </form>
         </Modal>
