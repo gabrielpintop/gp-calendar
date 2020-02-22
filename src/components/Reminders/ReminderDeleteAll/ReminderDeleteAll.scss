@@ -1,0 +1,11 @@
+#reminderDeleteAll {
+    padding-top: 0.2rem;
+    text-align: center;
+}
+
+@media (max-width: 991.98px) {
+    #reminderDeleteAll {
+        text-align: left;
+        padding-left: 2rem;
+    }
+}

@@ -8,12 +8,14 @@ import './CalendarOptions.scss';
 const CalendarOptions = ({ reminders }) => {
     return (
         <section id="calendarOptions">
-            <SelectMonth />
-            <hr />
+            <div className="show-lg">
+                <SelectMonth />
+                <hr />
+            </div>
             <Reminders />
             {reminders && reminders.length > 0 &&
                 <>
-                    <hr />
+                    <hr className="show-lg" />
                     <ReminderDeleteAll />
                 </>
             }

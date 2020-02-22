@@ -1,5 +1,5 @@
 #calendar {
-    width: 75vw;
+    width: 70vw;
     padding: 1rem 1rem;
 
     table {
@@ -29,5 +29,44 @@
         tr td:last-child {
             border-right: 0px;
         }
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    #calendar {
+        min-width: 100vw;
+        padding: 0 !important;
+        min-height: auto;
+    }
+
+    table {
+        min-height: 58.2vh;
+
+        thead {
+            background-color: #a42ef3;
+            color: white;
+        }
+
+        tbody {
+            border-bottom: 1px solid #B998CA;
+        }
+
+        th {
+            .week-day-first-letters {
+                margin-top: 0.9rem;
+                display: block;
+            }
+
+            .week-day-letters {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 1199.98px) {
+    #calendar {
+        width: 67vw;
     }
 }

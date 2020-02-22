@@ -1,10 +1,25 @@
 #calendarOptions {
-    width: 16vw;
+    width: 21vw;
     margin-left: 2vw;
     padding: 1rem 0.2rem;
 
     hr {
         border: 1px solid #B998CA;
         width: 90%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    #calendarOptions {
+        min-width: 100vw;
+        padding: 0.5rem 0rem;
+        margin: 0;
+        height: 20vh;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    #calendarOptions {
+        width: 24vw;
     }
 }

@@ -73,3 +73,34 @@
 .selected-day {
     border: 2px solid #4A8179;
 }
+
+@media (max-width: 991.98px) {
+
+    .calendar-day-content {
+        .reminder {
+            display: none;
+        }
+    }
+
+    .calendar-day-content {
+        height: 70px !important;
+    }
+
+
+
+    .select-reminders-area {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .reminder-extra {
+            margin: 0px;
+            border-radius: 20%;
+            padding: 0.2rem;
+            width: 17px;
+            height: 17px;
+            text-align: center;
+        }
+    }
+}

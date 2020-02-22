@@ -24,6 +24,7 @@ const Reminders = (props) => {
                     )}
                 </ul>
             }
+            {reminders.length === 0 && <h5 id="noReminders" className="show-sm">You have no reminders for this day</h5>}
             <div id="reminderAdd" className={reminders.length === 0 ? 'margin-top-2' : ''}>
                 <button className="button-add" onClick={() => toggleModal({ showModal: true, reminder: {} })}><i className="fas fa-plus"></i>&nbsp;Add reminder</button>
             </div>

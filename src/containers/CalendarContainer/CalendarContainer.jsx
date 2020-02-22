@@ -5,6 +5,7 @@ import CalendarOptions from '../../components/CalendarOptions/CalendarOptions';
 import DevelopedBy from '../../components/DevelopedBy/DevelopedBy';
 import ReminderForm from '../../components/Reminders/ReminderFormModal/ReminderFormModal';
 import { connect } from 'react-redux';
+import SelectMonth from '../../components/CalendarOptions/SelectMonth/SelectMonth';
 
 const CalendarContainer = (props) => {
 
@@ -13,10 +14,16 @@ const CalendarContainer = (props) => {
     return (
         <main id="calendarContainer">
             <div id="calendarView">
+                <div className="show-sm">
+                    <DevelopedBy />
+                    <SelectMonth />
+                </div>
                 <Calendar />
                 <CalendarOptions />
             </div>
-            <DevelopedBy />
+            <div className="show-lg">
+                <DevelopedBy />
+            </div>
             {showModal && <ReminderForm />}
         </main>
     );

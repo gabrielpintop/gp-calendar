@@ -12,3 +12,34 @@
         display: inline-block;
     }
 }
+
+@media (max-width: 991.98px) {
+    #monthSelector {
+        color: white;
+        padding: 1rem !important;
+        display: flex;
+        align-items: center;
+
+        h3:first-child {
+            order: 2;
+            margin-left: auto;
+        }
+
+        h3:last-child {
+            order: 1;
+        }
+
+        i {
+            color: #feb805;
+            font-size: 1.6rem;
+            width: 40px;
+            margin-right: 0;
+            text-align: center;
+            // background-color: red;
+        }
+
+        i:first-child {
+            margin-right: 1rem;
+        }
+    }
+}

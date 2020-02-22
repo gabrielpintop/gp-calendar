@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setRemindersAndDate } from '../../../actions';
 import { deleteReminders } from '../../../services/reminders';
-
+import './ReminderDeleteAll.scss';
 
 const ReminderDeleteAll = (props) => {
 

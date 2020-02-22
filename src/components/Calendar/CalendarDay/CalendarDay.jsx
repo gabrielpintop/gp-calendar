@@ -11,18 +11,23 @@ const CalendarDay = (props) => {
     return (
         <td className={`${!currentMonth ? 'calendar-different-month-day' : ''}`}>
             <div className="calendar-day-content">
-                <h5 onClick={() => setRemindersAndDate({ year, month, day, showModal: false })} className={`no-select calendar-day-title${currentDay ? ' current-day' : ''}${selectedDay ? ' selected-day' : ''}`}>{day}</h5>
+                <div className="pointer select-reminders-title-area" onClick={() => setRemindersAndDate({ year, month, day, showModal: false })}><h5 className={`no-select calendar-day-title${currentDay ? ' current-day' : ''}${selectedDay ? ' selected-day' : ''}`}>{day}</h5></div>
                 {reminders && reminders.length > 0 ?
-                    <CalendarDayReminder reminder={reminders[0]} day={day} month={month} year={year} key={'CD' + reminders[0].id} setRemindersAndDate={setRemindersAndDate} />
+                    <>
+                        <CalendarDayReminder reminder={reminders[0]} day={day} month={month} year={year} key={'CD' + reminders[0].id} setRemindersAndDate={setRemindersAndDate} />
+                        <div className="no-select show-sm select-reminders-area" onClick={() => setRemindersAndDate({ year, month, day, showModal: false })}>
+                            <div className="reminder-extra">{reminders.length}</div>
+                        </div>
+                    </>
                     :
-                    <div className="pointer" onClick={() => setRemindersAndDate({ year, month, day, showModal: false })}>
+                    <div className="pointer select-reminders-area" onClick={() => setRemindersAndDate({ year, month, day, showModal: false })}>
                         <br />
                     </div>
                 }
-                <div>
+                <div className="show-lg">
                     {reminders && reminders.length > 1 ?
                         <div className="reminder-extra no-select" onClick={() => setRemindersAndDate({ year, month, day, showModal: false })}>
-                            {reminders.length - 1} more this day
+                            {reminders.length} this day
                         </div>
                         :
                         <div>

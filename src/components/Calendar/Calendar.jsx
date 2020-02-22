@@ -54,13 +54,13 @@ const Calendar = (props) => {
             <table >
                 <thead>
                     <tr>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
+                        <th><span className="week-day-first-letters">Su</span><span className="week-day-letters">nday</span></th>
+                        <th><span className="week-day-first-letters">Mo</span><span className="week-day-letters">onday</span></th>
+                        <th><span className="week-day-first-letters">Tu</span><span className="week-day-letters">uesday</span></th>
+                        <th><span className="week-day-first-letters">We</span><span className="week-day-letters">dnesday</span></th>
+                        <th><span className="week-day-first-letters">Th</span><span className="week-day-letters">ursday</span></th>
+                        <th><span className="week-day-first-letters">Fr</span><span className="week-day-letters">iday</span></th>
+                        <th><span className="week-day-first-letters">Sa</span><span className="week-day-letters">turday</span></th>
                     </tr>
                 </thead>
                 <tbody>

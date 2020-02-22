@@ -18,11 +18,37 @@
     margin-bottom: 1rem;
 }
 
-#reminderDeleteAll {
-    padding-top: 0.2rem;
+#reminderAdd {
     text-align: center;
 }
 
-#reminderAdd {
+#noReminders {
     text-align: center;
+    margin: 3rem 1rem 0rem;
+    padding: 0.3rem;
+}
+
+@media (max-width: 991.98px) {
+    #reminderListContainer {
+        font-size: 1.2rem;
+    }
+
+    #reminderAdd {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        text-align: right;
+
+        button {
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .reminder-list {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
 }
