@@ -1,4 +1,5 @@
 import React from 'react';
+import './DevelopedBy.scss';
 
 const DevelopedBy = () => (
     <h5 id="developedBy">

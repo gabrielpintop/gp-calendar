@@ -1,3 +1,75 @@
 .calendar-different-month-day {
     background-color: rgb(219, 216, 216);
 }
+
+.calendar-day-content {
+    height: calc((70vh - 80px)/5);
+    overflow: hidden;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .reminder {
+        margin-top: 0rem;
+        margin-right: 0.3rem;
+        margin-left: 0.3rem;
+        font-size: 0.76rem;
+        margin-bottom: 0rem;
+    }
+
+    .reminder-extra {
+        margin-top: 0rem;
+        margin-left: 0.3rem;
+        font-size: 0.72rem;
+        color: white;
+        background-color: #feb805;
+        border-radius: 0.50rem;
+        padding: 0.15rem 0.3rem;
+        cursor: pointer;
+        display: inline-block
+    }
+
+    .reminder-new {
+        margin-top: 0.1rem;
+        margin-right: 0.3rem;
+        font-size: 1rem;
+        float: right;
+        color: #A42EF3;
+        transition: opacity 0.2s ease-in;
+        opacity: 0;
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+}
+
+.calendar-day-title {
+    width: 17px;
+    height: 17px;
+    padding: 0.2rem;
+    margin: 0.3rem 0rem 0rem 0.3rem;
+    display: inline-block;
+    border-radius: 100%;
+    border: 1px solid transparent;
+    text-align: center;
+    cursor: pointer;
+}
+
+.calendar-day-content:hover {
+    .reminder-new {
+        opacity: 1;
+    }
+}
+
+.current-day {
+    background-color: #B998CA;
+    border: 1px solid #B998CA;
+    color: white;
+}
+
+.selected-day {
+    border: 2px solid #4A8179;
+}

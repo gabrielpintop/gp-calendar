@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './ReminderFormModal.scss';
 import { connect } from 'react-redux';
 import { toggleModal, setRemindersAndDate } from '../../../actions';
-import { getWeatherBasedOnCity } from '../../../services/weather';
 import { addReminder, updateReminder, deleteReminder } from '../../../services/reminders';
+import WeatherDetails from '../../WeatherDetails/WeatherDetails';
 
 const ReminderForm = (props) => {
 
     const { reminder, showModal, toggleModal, year, month, day, setRemindersAndDate } = props;
-
-    const [loading, setLoading] = useState(false);
-
-    const [weatherData, setWeatherData] = useState(null);
 
     const customStyles = {
         content: {
@@ -38,16 +34,6 @@ const ReminderForm = (props) => {
         setValues({
             ...form,
             [event.target.name]: event.target.value
-        });
-    };
-
-    const getCityWeather = () => {
-        setLoading(true);
-        getWeatherBasedOnCity(reminder.city).then(data => {
-            setWeatherData(data);
-            setLoading(false);
-        }).catch(err => {
-            setLoading(false);
         });
     };
 
@@ -80,23 +66,19 @@ const ReminderForm = (props) => {
     };
 
     const handleDeleteReminder = () => {
-        if (deleteReminder(year, month, day, reminder.id)) {
-            setRemindersAndDate({ year, month, day, showModal: false, reminder: {} });
-        } else {
-            window.alert('There was an error while deleting the reminder')
+        if (window.confirm('Are you sure you want to delete the current reminder?')) {
+            if (deleteReminder(year, month, day, reminder.id)) {
+                setRemindersAndDate({ year, month, day, showModal: false, reminder: {} });
+            } else {
+                window.alert('There was an error while deleting the reminder')
+            }
         }
     };
-
-    useEffect(() => {
-        if (reminder.id && reminder.city) {
-            getCityWeather();
-        }
-    }, []);
 
     return (
         <Modal isOpen={showModal} style={customStyles}>
             <div id="closeHeader"><i className="fas fa-times" onClick={() => toggleModal({ showModal: false, reminder: {} })}></i></div>
-            {reminder.id && <div className="weather-information">{loading ? <span className="loading-weather">Loading {reminder.city} weather...</span> : weatherData && <><img src={`http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt={weatherData.main}></img><span>{weatherData.main} in {reminder.city}</span></>}</div>}
+            {reminder.id && <WeatherDetails />}
             <form onSubmit={handleSubmit}>
                 <label className="label" htmlFor="text">Text</label>
                 <input

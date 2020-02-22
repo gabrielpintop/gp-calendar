@@ -19,20 +19,3 @@
     text-align: right;
     cursor: pointer;
 }
-
-.weather-information {
-    display: flex;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #4D4352;
-    align-items: center;
-
-    .loading-weather {
-        margin-bottom: 1rem;
-        font-size: 0.8rem;
-    }
-
-    img {
-        width: 40px;
-    }
-}

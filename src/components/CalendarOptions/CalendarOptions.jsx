@@ -3,6 +3,7 @@ import SelectMonth from './SelectMonth/SelectMonth';
 import Reminders from '../Reminders/Reminders';
 import ReminderDeleteAll from '../Reminders/ReminderDeleteAll/ReminderDeleteAll';
 import { connect } from 'react-redux';
+import './CalendarOptions.scss';
 
 const CalendarOptions = ({ reminders }) => {
     return (

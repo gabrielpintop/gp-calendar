@@ -1,0 +1,33 @@
+#calendar {
+    width: 75vw;
+    padding: 1rem 1rem;
+
+    table {
+        height: 100%;
+        border-collapse: collapse;
+
+        th {
+            padding: 0;
+            padding-bottom: 0.8rem;
+        }
+
+        th,
+        td {
+            width: calc((100vw - 6px) / 7);
+        }
+
+        td {
+            border-top: 1.2px solid #B998CA;
+            border-right: 1.2px solid #B998CA;
+            vertical-align: top;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        tr td:last-child {
+            border-right: 0px;
+        }
+    }
+}

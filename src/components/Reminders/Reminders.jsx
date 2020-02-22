@@ -2,6 +2,7 @@ import React from 'react';
 import ReminderDetails from './ReminderDetails/ReminderDetails';
 import { connect } from 'react-redux';
 import { toggleModal } from '../../actions';
+import './Reminders.scss';
 
 const Reminders = (props) => {
 
@@ -14,7 +15,7 @@ const Reminders = (props) => {
     };
 
     return (
-        <div id="reminder">
+        <div id="reminderListContainer">
             <h4>{calculatWeekDay()} {day}</h4>
             {reminders && reminders.length > 0 &&
                 <ul className="reminder-list">

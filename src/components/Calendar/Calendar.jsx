@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CalendarDay from './CalendarDay/CalendarDay';
 import { connect } from 'react-redux';
 import { getRemindersByYearAndMonth } from '../../services/reminders';
+import './Calendar.scss';
 
 const Calendar = (props) => {
     const [calendarDays, setCalendarDays] = useState([]);

@@ -9,7 +9,6 @@ const ReminderDetails = (props) => {
     return (
         <li style={{ backgroundColor: reminder.color }} className="reminder" onClick={() => defineReminder({ ...reminder, year, month, day })}><span>{reminder.text}</span><span><i className="far fa-clock"></i>&nbsp;{reminder.time}</span></li>
     );
-
 };
 
 const mapStateToProps = ({ year, month, day }) => {
