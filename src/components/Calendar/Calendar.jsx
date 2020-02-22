@@ -55,9 +55,9 @@ const Calendar = (props) => {
                 <thead>
                     <tr>
                         <th><span className="week-day-first-letters">Su</span><span className="week-day-letters">nday</span></th>
-                        <th><span className="week-day-first-letters">Mo</span><span className="week-day-letters">onday</span></th>
-                        <th><span className="week-day-first-letters">Tu</span><span className="week-day-letters">uesday</span></th>
-                        <th><span className="week-day-first-letters">We</span><span className="week-day-letters">dnesday</span></th>
+                        <th><span className="week-day-first-letters">Mo</span><span className="week-day-letters">nday</span></th>
+                        <th><span className="week-day-first-letters">Tu</span><span className="week-day-letters">esday</span></th>
+                        <th><span className="week-day-first-letters">We</span><span className="week-day-letters">nesday</span></th>
                         <th><span className="week-day-first-letters">Th</span><span className="week-day-letters">ursday</span></th>
                         <th><span className="week-day-first-letters">Fr</span><span className="week-day-letters">iday</span></th>
                         <th><span className="week-day-first-letters">Sa</span><span className="week-day-letters">turday</span></th>

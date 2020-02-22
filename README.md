@@ -10,4 +10,9 @@ Always remember your daily activities with unique reminders thanks to GP Calenda
 4) Enter to the main folder of the project and install the depedencies by running the command "npm i"
 5) Once the dependencies are installed, you can run the app with the command "npm run start"
 
+## Instructions for running the tests
+
+1) Enter to the main folder of the project and install the depedencies by running the command "npm i"
+2) Run the command "npm run test" and that's it
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
